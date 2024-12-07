@@ -1,3 +1,20 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",  // Next.js ESLint config
+    "plugin:prettier/recommended"  // Prettier integration
+  ],
+  "plugins": ["prettier"],  // Using Prettier plugin
+  "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],  // Ensure Prettier rules are applied
+    "no-unused-vars": "warn",  // Warn for unused variables
+    "no-console": "warn"  // Warn for console statements
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@next/next/no-page-custom-font": "off"  // If you use custom fonts in Next.js, disable the rule
+      }
+    }
+  ]
 }
